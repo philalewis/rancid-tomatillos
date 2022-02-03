@@ -1,0 +1,8 @@
+.poster {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.poster-image {
+  width: 100%;
+}
