@@ -1,22 +1,15 @@
 import React from 'react'
 import './Poster.css'
 
-const Poster = ({ poster, title, rating, releaseDate }) => {
+const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id }) => {
   return (
-    <article   className="poster">
-      <img className="poster-image" src={poster} alt={title} />
+    <article id={id} className="poster">
+      <img className="poster-image" src={poster} alt={title} onClick={() => viewMovieInfo(id)}/>
       <p className="poster-title">{title}</p>
       <p className="rating">Rating: {rating.toFixed(2)}</p>
+      <p className="releaseDate">Released: {releaseDate}</p>
     </article>
   )
 }
 
 export default Poster
-
-// id={movie.id}
-//         key={movie.id}
-//         title={movie.title}
-//         rating={movie.average_rating}
-//         poster={movie.poster_path}
-//         // backdropPath={movie.backdrop_path}
-//         releaseDate={movie.release_date}
