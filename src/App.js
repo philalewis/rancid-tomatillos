@@ -27,12 +27,18 @@ class App extends Component {
     })
   }
 
+  goHome = () => {
+    this.setState({ movieView: false })
+  }
+
   render() {
     return (
       <main>
         <nav>
           <h1>Rancid Tomatillos</h1>
-          <img src="home-btn-img.png" alt="home-icon" />
+          <button onClick={() => this.goHome()}>
+            <img src="home-btn-img.png" alt="home-icon" />
+          </button>
         </nav>
         {
           this.state.movieView ?
