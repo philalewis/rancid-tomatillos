@@ -19,7 +19,7 @@ const AllMovies = ({ movies }) => {
   })
 
   return (
-    <section>
+    <section className="all-movies-container">
       { moviesList }
     </section>
   )
