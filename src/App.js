@@ -17,8 +17,12 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.setState({ movies: moviesData.movies })
+    this.setState({ movies: this.sortMovies(moviesData.movies) })
   }
+  
+  // componentDidUpdate() {
+  //   console.log(this.state.movies)
+  // }
 
   viewMovieInfo = id => {
     const flick = this.state.movies.find(movie => movie.id === parseInt(id))
@@ -31,6 +35,21 @@ class App extends Component {
   goHome = () => {
     this.setState({ movieView: false })
   }
+  
+  formatDate = date => {
+    const splitDate = date.split('-')
+    const newDate = splitDate.slice(1)
+    newDate.push(splitDate[0])
+    return newDate.join('/')
+  }
+
+  sortMovies = (flicks) => {
+    return flicks.sort((a, b) => {
+      let titleA = a.title.toUpperCase()
+      let titleB = b.title.toUpperCase()
+      return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
+    })
+  }
 
   render() {
     return (
@@ -38,7 +57,11 @@ class App extends Component {
         <nav>
           <h1>Rancid Tomatillos</h1>
           <button className="home-btn" onClick={() => this.goHome()}>
-            <img className="home-btn-img" src={require("./home-btn-img.png")} alt="home-icon" />
+            <img 
+              className="home-btn-img" 
+              src={require("./home-btn-img.png")} 
+              alt="home-icon" 
+            />
           </button>
         </nav>
         {
@@ -51,10 +74,12 @@ class App extends Component {
             poster={this.state.currentMovie.poster_path}
             releaseDate={this.state.currentMovie.release_date}
             backdrop={this.state.currentMovie.backdrop_path}
+            formatDate={this.formatDate}
           /> : 
           <AllMovies
             viewMovieInfo={this.viewMovieInfo} 
             movies={this.state.movies}
+            formatDate={this.formatDate}
           />
         }
       </main>

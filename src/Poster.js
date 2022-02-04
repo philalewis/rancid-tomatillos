@@ -1,13 +1,7 @@
 import React from 'react'
 import './Poster.css'
 
-const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id }) => {
-  const formatDate = date => {
-    const splitDate = date.split('-')
-    const newDate = splitDate.slice(1)
-    newDate.push(splitDate[0])
-    return newDate.join('/')
-  }
+const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatDate }) => {
   return (
     <article id={id} className="poster">
       <img className="poster-image" src={poster} alt={title} onClick={() => viewMovieInfo(id)}/>
