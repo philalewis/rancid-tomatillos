@@ -1,0 +1,13 @@
+.movie-poster-img {
+  width: 50%;
+}
+
+.movie-details-view {
+  display: flex;
+  flex-direction: row;
+  margin: 70px;
+}
+
+.backdrop-img {
+  width: 100%;
+}

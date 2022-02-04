@@ -5,6 +5,7 @@ import AllMovies from './AllMovies'
 import Movie from './Movie'
 import './home-btn-img.png'
 
+
 class App extends Component {
   constructor() {
     super()
@@ -36,8 +37,8 @@ class App extends Component {
       <main>
         <nav>
           <h1>Rancid Tomatillos</h1>
-          <button onClick={() => this.goHome()}>
-            <img src="home-btn-img.png" alt="home-icon" />
+          <button className="home-btn" onClick={() => this.goHome()}>
+            <img className="home-btn-img" src={require("./home-btn-img.png")} alt="home-icon" />
           </button>
         </nav>
         {

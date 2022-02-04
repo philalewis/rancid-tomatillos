@@ -5,4 +5,14 @@
 
 .poster-image {
   width: 100%;
+  border-radius: 8px;
+}
+
+.poster-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  margin: 5px;
 }
