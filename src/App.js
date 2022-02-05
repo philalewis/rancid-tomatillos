@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import './App.css';
-import moviesData from './data.js'
 import AllMovies from './AllMovies'
 import Movie from './Movie'
 import './home-btn-img.png'
-
+import apiCalls from './apiCalls'
+import Modal from './Modal'
 
 class App extends Component {
   constructor() {
@@ -17,19 +17,22 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.setState({ movies: this.sortMovies(moviesData.movies) })
+    apiCalls.getData('movies')
+    .then(data => this.setState({ movies: this.sortMovies(data.movies) }))
+    .catch(error => this.setState ({ error: error }))
   }
-  
-  // componentDidUpdate() {
-  //   console.log(this.state.movies)
-  // }
 
   viewMovieInfo = id => {
-    const flick = this.state.movies.find(movie => movie.id === parseInt(id))
-    this.setState({
-      movieView: true,
-      currentMovie: flick
+    let flick;
+    apiCalls.getData(`movies/:movie_${id}`)
+    .then(data => {
+      flick = data.movie 
+      this.setState({
+        movieView: true,
+        currentMovie: flick
+      }) 
     })
+    .catch(error => this.setState ({ error: error }))
   }
 
   goHome = () => {
@@ -50,8 +53,34 @@ class App extends Component {
       return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
     })
   }
+  
+  exitModal = () => {
+    this.setState({ error: '' })
+  }
 
   render() {
+    let displayMovies = (
+      this.state.movieView ?
+      <Movie 
+        id={this.state.currentMovie.id}
+        key={this.state.currentMovie.id}
+        title={this.state.currentMovie.title}
+        rating={this.state.currentMovie.average_rating}
+        poster={this.state.currentMovie.poster_path}
+        releaseDate={this.state.currentMovie.release_date}
+        backdrop={this.state.currentMovie.backdrop_path}
+        formatDate={this.formatDate}
+      /> : 
+      <AllMovies
+        viewMovieInfo={this.viewMovieInfo} 
+        movies={this.state.movies}
+        formatDate={this.formatDate}
+      />
+    )
+    let displayError = (
+      this.state.error && 
+      <Modal message={this.state.error} exitModal={this.exitModal} />
+    )  
     return (
       <main>
         <nav>
@@ -64,24 +93,8 @@ class App extends Component {
             />
           </button>
         </nav>
-        {
-          this.state.movieView ?
-          <Movie 
-            id={this.state.currentMovie.id}
-            key={this.state.currentMovie.id}
-            title={this.state.currentMovie.title}
-            rating={this.state.currentMovie.average_rating}
-            poster={this.state.currentMovie.poster_path}
-            releaseDate={this.state.currentMovie.release_date}
-            backdrop={this.state.currentMovie.backdrop_path}
-            formatDate={this.formatDate}
-          /> : 
-          <AllMovies
-            viewMovieInfo={this.viewMovieInfo} 
-            movies={this.state.movies}
-            formatDate={this.formatDate}
-          />
-        }
+        { displayMovies }
+        { displayError }
       </main>
     )
   }
