@@ -50,7 +50,6 @@ class App extends Component {
   }
 
   sortMovies = category => {
-    console.log(typeof category)
     if (category === 'title') {
       this.setState({
         movies: this.state.movies.sort((a, b) => {
@@ -93,11 +92,13 @@ class App extends Component {
         formatDate={this.formatDate}
       /> : 
       <section>
-        <select onChange={event => this.sortMovies(event.target.value)}>
-          <option value="title">title: a-z</option>
-          <option value="release_date">release date: newest-oldest</option>
-          <option value="average_rating">average rating: high-low</option>
-        </select>
+        <section className="sort-dropdown-container">
+          <select className="sort-dropdown" onChange={event => this.sortMovies(event.target.value)}>
+            <option value="title">title: a-z</option>
+            <option value="release_date">release date: newest-oldest</option>
+            <option value="average_rating">average rating: high-low</option>
+          </select>
+        </section>
         <AllMovies
           viewMovieInfo={this.viewMovieInfo} 
           movies={this.state.movies}
