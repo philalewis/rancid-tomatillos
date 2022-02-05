@@ -14,13 +14,23 @@
 .modal-box {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   background-color: white;
   margin: auto;
-  padding: 20px;
-  width: 40%;
-  max-height: 8rem;
+  padding: 25px;
+  width: 50%;
   overflow-y: auto;
   bottom: 50px;
   text-align: center;
+  font-size: 32px;
+}
+
+.modal-btn {
+  border: none;
+  background-color: #B00D07;
+  color: white;
+  font-size: 21px;
+  width: 150px;
+  padding: 10px;
 }
