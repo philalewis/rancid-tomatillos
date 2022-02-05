@@ -4,6 +4,7 @@ import AllMovies from './AllMovies'
 import Movie from './Movie'
 import './home-btn-img.png'
 import apiCalls from './apiCalls'
+import Modal from './Modal'
 
 class App extends Component {
   constructor() {
@@ -47,6 +48,10 @@ class App extends Component {
       return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
     })
   }
+  
+  exitModal = () => {
+    this.setState({ error: '' })
+  }
 
   render() {
     return (
@@ -79,7 +84,8 @@ class App extends Component {
             formatDate={this.formatDate}
           />
         }
-        { this.state.error && <h3>{this.state.error}</h3> }
+        { this.state.error && <Modal message={this.state.error} exitModal={this.exitModal} /> }
+
       </main>
     )
   }

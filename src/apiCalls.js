@@ -1,6 +1,6 @@
 const apiCalls = {
   getAllMovies() {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movie`)
     .then(response => {
       if (response.ok) {
         return response.json()
