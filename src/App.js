@@ -17,17 +17,22 @@ class App extends Component {
   }
   
   componentDidMount() {
-    apiCalls.getAllMovies()
+    apiCalls.getData('movies')
     .then(data => this.setState({ movies: this.sortMovies(data.movies) }))
     .catch(error => this.setState ({ error: error }))
   }
 
   viewMovieInfo = id => {
-    const flick = this.state.movies.find(movie => movie.id === parseInt(id))
-    this.setState({
-      movieView: true,
-      currentMovie: flick
+    let flick;
+    apiCalls.getData(`movies/:movie_${id}`)
+    .then(data => {
+      flick = data.movie 
+      this.setState({
+        movieView: true,
+        currentMovie: flick
+      }) 
     })
+    .catch(error => this.setState ({ error: error }))
   }
 
   goHome = () => {
