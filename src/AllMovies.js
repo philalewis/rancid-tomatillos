@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './AllMovies.css'
 import Poster from './Poster'
 
-const AllMovies = ({ movies, viewMovieInfo }) => {
+const AllMovies = ({ movies, viewMovieInfo, formatDate }) => {
   
   const moviesList = movies.map(movie => {
     return (
@@ -14,6 +14,7 @@ const AllMovies = ({ movies, viewMovieInfo }) => {
         poster={movie.poster_path}
         releaseDate={movie.release_date}
         viewMovieInfo={viewMovieInfo}
+        formatDate={formatDate}
       />
     )
   })
