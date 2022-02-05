@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import './App.css';
-import moviesData from './data.js'
 import AllMovies from './AllMovies'
 import Movie from './Movie'
 import './home-btn-img.png'
-
+import apiCalls from './apiCalls'
 
 class App extends Component {
   constructor() {
@@ -17,12 +16,10 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.setState({ movies: this.sortMovies(moviesData.movies) })
+    apiCalls.getAllMovies()
+    .then(data => this.setState({ movies: this.sortMovies(data.movies) }))
+    .catch(error => this.setState ({ error: 'Error Obtaining Data' }))
   }
-  
-  // componentDidUpdate() {
-  //   console.log(this.state.movies)
-  // }
 
   viewMovieInfo = id => {
     const flick = this.state.movies.find(movie => movie.id === parseInt(id))
