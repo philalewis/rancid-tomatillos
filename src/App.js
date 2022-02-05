@@ -18,7 +18,10 @@ class App extends Component {
   
   componentDidMount() {
     apiCalls.getData('movies')
-    .then(data => this.setState({ movies: this.sortMovies(data.movies) }))
+    .then(data => {
+      this.setState({ movies: data.movies })
+      this.sortMovies('title')
+    })
     .catch(error => this.setState ({ error: error }))
   }
 
@@ -46,14 +49,31 @@ class App extends Component {
     return newDate.join('/')
   }
 
-  sortMovies = (flicks) => {
-    return flicks.sort((a, b) => {
-      let titleA = a.title.toUpperCase()
-      let titleB = b.title.toUpperCase()
-      return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
-    })
+  sortMovies = category => {
+    if (category === 'title') {
+      this.setState({
+        movies: this.state.movies.sort((a, b) => {
+          let catA = a[category].toUpperCase()
+          let catB = b[category].toUpperCase()
+          return catA < catB ? -1 : catA > catB ? 1 : 0
+        })
+      })
+    } else if (category === 'average_rating') {
+      this.setState({
+        movies: this.state.movies.sort((a, b) => {
+          return parseFloat(b[category]) - parseFloat(a[category])
+        })
+      })
+    } else if (category === 'release_date') {
+      this.setState({
+        movies: this.state.movies.sort((a, b) => {
+          return parseInt(b[category].split('-').join('')) -
+            parseInt(a[category].split('-').join(''))
+        })
+      })
+    }
   }
-  
+
   exitModal = () => {
     this.setState({ error: '' })
   }
@@ -71,11 +91,21 @@ class App extends Component {
         backdrop={this.state.currentMovie.backdrop_path}
         formatDate={this.formatDate}
       /> : 
-      <AllMovies
-        viewMovieInfo={this.viewMovieInfo} 
-        movies={this.state.movies}
-        formatDate={this.formatDate}
-      />
+      <section>
+        <section className="sort-dropdown-container">
+          <select className="sort-dropdown" onChange={event => this.sortMovies(event.target.value)}>
+            <option value="title">title: a-z</option>
+            <option value="release_date">release date: newest-oldest</option>
+            <option value="average_rating">average rating: high-low</option>
+          </select>
+        </section>
+        <AllMovies
+          viewMovieInfo={this.viewMovieInfo} 
+          movies={this.state.movies}
+          formatDate={this.formatDate}
+          sortMovies={this.sortMovies}
+        />
+      </section>
     )
     let displayError = (
       this.state.error && 

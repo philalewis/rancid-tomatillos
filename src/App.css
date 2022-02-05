@@ -22,3 +22,12 @@ h1 {
   margin: 10px;
   font-size: 32px;
 }
+
+.sort-dropdown {
+  margin: 10px;
+}
+
+.sort-dropdown-container {
+  display: flex;
+  justify-content: flex-end;
+}
