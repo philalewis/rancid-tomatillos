@@ -18,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     apiCalls.getAllMovies()
     .then(data => this.setState({ movies: this.sortMovies(data.movies) }))
-    .catch(error => this.setState ({ error: 'Error Obtaining Data' }))
+    .catch(error => this.setState ({ error: error }))
   }
 
   viewMovieInfo = id => {
@@ -79,6 +79,7 @@ class App extends Component {
             formatDate={this.formatDate}
           />
         }
+        { this.state.error && <h3>{this.state.error}</h3> }
       </main>
     )
   }
