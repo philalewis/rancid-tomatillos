@@ -59,6 +59,28 @@ class App extends Component {
   }
 
   render() {
+    let displayMovies = (
+      this.state.movieView ?
+      <Movie 
+        id={this.state.currentMovie.id}
+        key={this.state.currentMovie.id}
+        title={this.state.currentMovie.title}
+        rating={this.state.currentMovie.average_rating}
+        poster={this.state.currentMovie.poster_path}
+        releaseDate={this.state.currentMovie.release_date}
+        backdrop={this.state.currentMovie.backdrop_path}
+        formatDate={this.formatDate}
+      /> : 
+      <AllMovies
+        viewMovieInfo={this.viewMovieInfo} 
+        movies={this.state.movies}
+        formatDate={this.formatDate}
+      />
+    )
+    let displayError = (
+      this.state.error && 
+      <Modal message={this.state.error} exitModal={this.exitModal} />
+    )  
     return (
       <main>
         <nav>
@@ -71,26 +93,8 @@ class App extends Component {
             />
           </button>
         </nav>
-        {
-          this.state.movieView ?
-          <Movie 
-            id={this.state.currentMovie.id}
-            key={this.state.currentMovie.id}
-            title={this.state.currentMovie.title}
-            rating={this.state.currentMovie.average_rating}
-            poster={this.state.currentMovie.poster_path}
-            releaseDate={this.state.currentMovie.release_date}
-            backdrop={this.state.currentMovie.backdrop_path}
-            formatDate={this.formatDate}
-          /> : 
-          <AllMovies
-            viewMovieInfo={this.viewMovieInfo} 
-            movies={this.state.movies}
-            formatDate={this.formatDate}
-          />
-        }
-        { this.state.error && <Modal message={this.state.error} exitModal={this.exitModal} /> }
-
+        { displayMovies }
+        { displayError }
       </main>
     )
   }
