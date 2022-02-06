@@ -5,6 +5,7 @@ import Movie from './Movie'
 import './home-btn-img.png'
 import apiCalls from './apiCalls'
 import Modal from './Modal'
+import sortMovies from './sort.js'
 
 class App extends Component {
   constructor() {
@@ -50,28 +51,50 @@ class App extends Component {
   }
 
   sortMovies = category => {
-    if (category === 'title') {
-      this.setState({
-        movies: this.state.movies.sort((a, b) => {
-          let catA = a[category].toUpperCase()
-          let catB = b[category].toUpperCase()
-          return catA < catB ? -1 : catA > catB ? 1 : 0
+    switch (category) {
+      case 'average_rating':
+        this.setState({
+          movies: sortMovies.byRatingHighToLow(this.state.movies)
         })
-      })
-    } else if (category === 'average_rating') {
-      this.setState({
-        movies: this.state.movies.sort((a, b) => {
-          return parseFloat(b[category]) - parseFloat(a[category])
+        break
+      case 'release_date_new_to_old':
+        this.setState({
+          movies: sortMovies.byReleaseDateOldestToNewest(this.state.movies)
         })
-      })
-    } else if (category === 'release_date') {
-      this.setState({
-        movies: this.state.movies.sort((a, b) => {
-          return parseInt(b[category].split('-').join('')) -
-            parseInt(a[category].split('-').join(''))
+        break
+      case 'release_date_old_to_new':
+        this.setState({
+          movies: sortMovies.byReleaseDateNewestToOldest(this.state.movies)
         })
-      })
+        break
+      default:
+        this.setState({
+          movies: sortMovies.alphabeticallyByTitle(this.state.movies)
+        })
     }
+
+    // if (category === 'title') {
+    //   this.setState({
+    //     movies: this.state.movies.sort((a, b) => {
+    //       let catA = a[category].toUpperCase()
+    //       let catB = b[category].toUpperCase()
+    //       return catA < catB ? -1 : catA > catB ? 1 : 0
+    //     })
+    //   })
+    // } else if (category === 'average_rating') {
+    //   this.setState({
+    //     movies: this.state.movies.sort((a, b) => {
+    //       return parseFloat(b[category]) - parseFloat(a[category])
+    //     })
+    //   })
+    // } else if (category === 'release_date') {
+    //   this.setState({
+    //     movies: this.state.movies.sort((a, b) => {
+    //       return parseInt(b[category].split('-').join('')) -
+    //         parseInt(a[category].split('-').join(''))
+    //     })
+    //   })
+    // }
   }
 
   exitModal = () => {
@@ -101,7 +124,8 @@ class App extends Component {
         <section className="sort-dropdown-container">
           <select className="sort-dropdown" onChange={event => this.sortMovies(event.target.value)}>
             <option value="title">title: a-z</option>
-            <option value="release_date">release date: newest-oldest</option>
+            <option value="release_date_new_to_old">release date: newest-oldest</option>
+            <option value="release_date_old_to_new">release date: oldest-newest</option>
             <option value="average_rating">average rating: high-low</option>
           </select>
         </section>
@@ -116,7 +140,7 @@ class App extends Component {
     let displayError = (
       this.state.error && 
       <Modal message={this.state.error} exitModal={this.exitModal} />
-    )  
+    )
     return (
       <main>
         <nav>
