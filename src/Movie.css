@@ -11,3 +11,32 @@
 .backdrop-img {
   width: 100%;
 }
+
+p {
+  margin: 10px 0 10px 0;
+}
+
+.right-side {
+  margin: 0 10px 0 10px;
+  max-width: 70%;
+}
+
+.details-box {
+  background: #cccccc;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.left-side {
+  text-align: center;
+  padding: 20px;
+  max-width: 30%;
+}
+
+.overview-text {
+  font-size: 20px;
+}
+
+.title {
+  font-size: 30px;
+}

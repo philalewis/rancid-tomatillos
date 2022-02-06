@@ -18,21 +18,23 @@ const Movie = ({
 }) => {
   return (
     <section className="movie-details-view" id={id}>
-      <article>
+      <article className="left-side">
         <img className="movie-poster-img" src={poster} alt={"Poster for " + title}/>
-        <h2>{title}</h2>
-        <p>{tagline}</p>
-        <p>Rating: {rating.toFixed(2)} / 10</p>
-        <p>Release Date: {formatDate(releaseDate)}</p>
-        <p>Genres: {genres.join(', ')}</p>
-        <p>Runtime: {runtime} minutes</p>
-        <p>Budget: ${budget}</p>
-        <p>Revenue: ${revenue}</p>
+        <h2 className="title">{title}</h2>
+        <section className="details-box">
+          <h3><em>{tagline.length > 0 && `"${tagline}"`}</em></h3>
+          <p>Rating: {rating.toFixed(2)} / 10</p>
+          <p>Release Date: {formatDate(releaseDate)}</p>
+          <p>Genres: {genres.join(', ')}</p>
+          <p>Runtime: {runtime} minutes</p>
+          <p>{budget > 0 && `Budget: $${budget}`}</p>
+          <p>{revenue > 0 && `Revenue: $${revenue}`}</p>
+        </section>
       </article>
-      <div>
+      <section className="right-side">
         <img className="backdrop-img" src={backdrop} alt={"Backdrop Image for " + title}/>
-        <p>{overview}</p>
-      </div>
+        <p className="overview-text">{overview}</p>
+      </section>
     </section>
     
   )
