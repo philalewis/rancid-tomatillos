@@ -52,27 +52,6 @@ class App extends Component {
 
   sortMovies = category => {
     this.setState({movies: sortMovies(this.state.movies, category)})
-    // switch (category) {
-    //   case 'average_rating':
-    //     this.setState({
-    //       movies: sortMovies.byRatingHighToLow(this.state.movies)
-    //     })
-    //     break
-    //   case 'release_date_new_to_old':
-    //     this.setState({
-    //       movies: sortMovies.byReleaseDateOldestToNewest(this.state.movies)
-    //     })
-    //     break
-    //   case 'release_date_old_to_new':
-    //     this.setState({
-    //       movies: sortMovies.byReleaseDateNewestToOldest(this.state.movies)
-    //     })
-    //     break
-    //   default:
-    //     this.setState({
-    //       movies: sortMovies.alphabeticallyByTitle(this.state.movies)
-    //     })
-    // }
   }
 
   exitModal = () => {
