@@ -27,13 +27,13 @@ class App extends Component {
 
   viewMovieInfo = id => {
     let flick;
-    apiCalls.getData(`movies/:movie_${id}`)
+    apiCalls.getData(`movies/${id}`)
     .then(data => {
       flick = data.movie 
       this.setState({
         movieView: true,
         currentMovie: flick
-      }) 
+      })
     })
     .catch(error => this.setState ({ error: error }))
   }
@@ -89,6 +89,12 @@ class App extends Component {
         poster={this.state.currentMovie.poster_path}
         releaseDate={this.state.currentMovie.release_date}
         backdrop={this.state.currentMovie.backdrop_path}
+        budget={this.state.currentMovie.budget}
+        revenue={this.state.currentMovie.revenue}
+        genres={this.state.currentMovie.genres}
+        overview={this.state.currentMovie.overview}
+        runtime={this.state.currentMovie.runtime}
+        tagline={this.state.currentMovie.tagline}
         formatDate={this.formatDate}
       /> : 
       <section>
