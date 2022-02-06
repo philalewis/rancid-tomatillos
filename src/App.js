@@ -51,49 +51,27 @@ class App extends Component {
   }
 
   sortMovies = category => {
-    switch (category) {
-      case 'average_rating':
-        this.setState({
-          movies: sortMovies.byRatingHighToLow(this.state.movies)
-        })
-        break
-      case 'release_date_new_to_old':
-        this.setState({
-          movies: sortMovies.byReleaseDateOldestToNewest(this.state.movies)
-        })
-        break
-      case 'release_date_old_to_new':
-        this.setState({
-          movies: sortMovies.byReleaseDateNewestToOldest(this.state.movies)
-        })
-        break
-      default:
-        this.setState({
-          movies: sortMovies.alphabeticallyByTitle(this.state.movies)
-        })
-    }
-
-    // if (category === 'title') {
-    //   this.setState({
-    //     movies: this.state.movies.sort((a, b) => {
-    //       let catA = a[category].toUpperCase()
-    //       let catB = b[category].toUpperCase()
-    //       return catA < catB ? -1 : catA > catB ? 1 : 0
+    this.setState({movies: sortMovies(this.state.movies, category)})
+    // switch (category) {
+    //   case 'average_rating':
+    //     this.setState({
+    //       movies: sortMovies.byRatingHighToLow(this.state.movies)
     //     })
-    //   })
-    // } else if (category === 'average_rating') {
-    //   this.setState({
-    //     movies: this.state.movies.sort((a, b) => {
-    //       return parseFloat(b[category]) - parseFloat(a[category])
+    //     break
+    //   case 'release_date_new_to_old':
+    //     this.setState({
+    //       movies: sortMovies.byReleaseDateOldestToNewest(this.state.movies)
     //     })
-    //   })
-    // } else if (category === 'release_date') {
-    //   this.setState({
-    //     movies: this.state.movies.sort((a, b) => {
-    //       return parseInt(b[category].split('-').join('')) -
-    //         parseInt(a[category].split('-').join(''))
+    //     break
+    //   case 'release_date_old_to_new':
+    //     this.setState({
+    //       movies: sortMovies.byReleaseDateNewestToOldest(this.state.movies)
     //     })
-    //   })
+    //     break
+    //   default:
+    //     this.setState({
+    //       movies: sortMovies.alphabeticallyByTitle(this.state.movies)
+    //     })
     // }
   }
 
