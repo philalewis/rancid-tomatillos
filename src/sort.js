@@ -7,12 +7,12 @@ const sortMovies = (movies, category) => {
       break
     case 'release_date_new_to_old':
       return movies.sort((a, b) => {
-        return new Date(a.release_date) - new Date(b.release_date)
+        return new Date(b.release_date) - new Date(a.release_date)
       })
       break
     case 'release_date_old_to_new':
       return movies.sort((a, b) => {
-        return new Date(b.release_date) - new Date(a.release_date)
+        return new Date(a.release_date) - new Date(b.release_date)
       })
       break
     default:
