@@ -76,7 +76,7 @@ class App extends Component {
         runtime={this.state.currentMovie.runtime}
         tagline={this.state.currentMovie.tagline}
         formatDate={this.formatDate}
-      /> : 
+      /> :
       <section>
         <section className="sort-dropdown-container">
           <select className="sort-dropdown" onChange={event => this.sortMovies(event.target.value)}>

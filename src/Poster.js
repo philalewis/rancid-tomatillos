@@ -12,7 +12,7 @@ const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatD
       </section>  
       <p className="poster-title">{title}</p>
       <p className="rating">Rating: {rating.toFixed(2)} / 10</p>
-      <p className="releaseDate">Released: {formatDate(releaseDate)}</p>
+      <p className="release-date">Released: {formatDate(releaseDate)}</p>
     </article>
   )
 }
