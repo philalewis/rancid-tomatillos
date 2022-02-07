@@ -16,6 +16,7 @@ const Movie = ({
   runtime,
   tagline
 }) => {
+  let dollarUSLocale = Intl.NumberFormat('en-US'); 
   return (
     <section className="movie-details-view" id={id}>
       <article className="left-side">
@@ -27,8 +28,8 @@ const Movie = ({
           <p>Release Date: {formatDate(releaseDate)}</p>
           <p>Genres: {genres.join(', ')}</p>
           <p>Runtime: {runtime} minutes</p>
-          <p>{budget > 0 && `Budget: $${budget}`}</p>
-          <p>{revenue > 0 && `Revenue: $${revenue}`}</p>
+          <p>{budget > 0 && `Budget: $${dollarUSLocale.format(budget)}`}</p>
+          <p>{revenue > 0 && `Revenue: $${dollarUSLocale.format(revenue)}`}</p>
         </section>
       </article>
       <section className="right-side">
