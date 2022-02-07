@@ -1,6 +1,7 @@
 .movie-poster-img {
   width: 50%;
   border-radius: 3px;
+  box-shadow: 20px 10px 5px grey;
 }
 
 .movie-details-view {
@@ -41,4 +42,5 @@ p {
 
 .title {
   font-size: 30px;
+  text-shadow: 2px 2px rgb(230, 227, 227);
 }

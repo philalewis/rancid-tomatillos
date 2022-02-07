@@ -12,11 +12,13 @@
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
+  box-shadow: 15px 10px 5px grey;
 }
 
 .poster-title {
   font-size: 20px;
   font-weight: bold;
+  text-shadow: 2px 2px rgb(230, 227, 227);
 }
 
 p {
