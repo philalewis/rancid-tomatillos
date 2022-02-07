@@ -51,6 +51,10 @@ p {
   border: none;
 }
 
+.see-details-btn:hover {
+  cursor: pointer;
+}
+
 .poster-image-container {
   position: relative;
   width: 50%;
