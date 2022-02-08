@@ -15,7 +15,6 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      movieView: false,
       currentMovie: {}
     }
   }
@@ -42,6 +41,10 @@ class App extends Component {
     .catch(error => this.setState ({ error: error }))
   }
 
+  handleError = error => {
+    this.setState ({ error: error })
+  }
+
   goHome = () => {
     this.setState({ movieView: false })
   }
@@ -62,34 +65,7 @@ class App extends Component {
   }
 
   render() {
-    let displayMovies = (
-      this.state.movieView ?
-      <Movie 
-        id={this.state.currentMovie.id}
-        key={this.state.currentMovie.id}
-        title={this.state.currentMovie.title}
-        rating={this.state.currentMovie.average_rating}
-        poster={this.state.currentMovie.poster_path}
-        releaseDate={this.state.currentMovie.release_date}
-        backdrop={this.state.currentMovie.backdrop_path}
-        budget={this.state.currentMovie.budget}
-        revenue={this.state.currentMovie.revenue}
-        genres={this.state.currentMovie.genres}
-        overview={this.state.currentMovie.overview}
-        runtime={this.state.currentMovie.runtime}
-        tagline={this.state.currentMovie.tagline}
-        formatDate={this.formatDate}
-      /> :
-      <section>
-        <SortDropdown sortMovies={this.sortMovies}/>
-        <AllMovies
-          viewMovieInfo={this.viewMovieInfo} 
-          movies={this.state.movies}
-          formatDate={this.formatDate}
-          sortMovies={this.sortMovies}
-        />
-      </section>
-    )
+
     let displayError = (
       this.state.error && 
       <Modal message={this.state.error} exitModal={this.exitModal} />
@@ -122,32 +98,10 @@ class App extends Component {
         } 
         />
         <Route exact path="/:id" render={({ match }) => {
-          const movie = this.state.movies.find(movie => {
-            return movie.id === parseInt(match.params.id)
-          })
-          console.log(movie)
-          return (
-            <Movie 
-              id={movie.id}
-              key={movie.id}
-              title={movie.title}
-              rating={movie.average_rating}
-              poster={movie.poster_path}
-              releaseDate={movie.release_date}
-              backdrop={movie.backdrop_path}
-              budget={movie.budget}
-              revenue={movie.revenue}
-              genres={movie.genres}
-              overview={movie.overview}
-              runtime={movie.runtime}
-              tagline={movie.tagline}
-              formatDate={this.formatDate}
-            />
-          )
-          }}
+          return <Movie id={match.params.id} handleError={this.handleError}/>
+        }}
         />
-        {/* // { displayMovies }
-        { displayError } */}
+        { displayError }
       </main>
     )
   }
