@@ -6,7 +6,9 @@ import './home-btn-img.png'
 import apiCalls from './apiCalls'
 import Modal from './Modal'
 import sortMovies from './sort.js'
-import SortDropdown from './SortDropdown';
+import SortDropdown from './SortDropdown'
+import { Route, Link } from 'react-router-dom'
+
 
 class App extends Component {
   constructor() {
@@ -96,16 +98,56 @@ class App extends Component {
       <main>
         <nav>
           <h1>Rancid Tomatillos</h1>
-          <button className="home-btn" onClick={() => this.goHome()}>
-            <img 
-              className="home-btn-img" 
-              src={require("./home-btn-img.png")} 
-              alt="home-icon" 
-            />
-          </button>
+          <Link to='/'> 
+            <button className="home-btn"> 
+              <img 
+                className="home-btn-img" 
+                src={require("./home-btn-img.png")} 
+                alt="home-icon" 
+              />
+            </button>
+          </Link>
         </nav>
-        { displayMovies }
-        { displayError }
+        <Route exact path="/" render={() => {
+          return <section>
+            <SortDropdown sortMovies={this.sortMovies}/>
+            <AllMovies
+              viewMovieInfo={this.viewMovieInfo} 
+              movies={this.state.movies}
+              formatDate={this.formatDate}
+              sortMovies={this.sortMovies}
+            />
+          </section>
+          }
+        } 
+        />
+        <Route exact path="/:id" render={({ match }) => {
+          const movie = this.state.movies.find(movie => {
+            return movie.id === parseInt(match.params.id)
+          })
+          console.log(movie)
+          return (
+            <Movie 
+              id={movie.id}
+              key={movie.id}
+              title={movie.title}
+              rating={movie.average_rating}
+              poster={movie.poster_path}
+              releaseDate={movie.release_date}
+              backdrop={movie.backdrop_path}
+              budget={movie.budget}
+              revenue={movie.revenue}
+              genres={movie.genres}
+              overview={movie.overview}
+              runtime={movie.runtime}
+              tagline={movie.tagline}
+              formatDate={this.formatDate}
+            />
+          )
+          }}
+        />
+        {/* // { displayMovies }
+        { displayError } */}
       </main>
     )
   }

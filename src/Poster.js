@@ -1,5 +1,6 @@
 import React from 'react'
 import './Poster.css'
+import { Link } from 'react-router-dom'
 
 const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatDate }) => {
   return (
@@ -7,7 +8,9 @@ const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatD
       <section className="poster-image-container">
         <img className="poster-image" src={poster} alt={title}/>
         <div className="middle">
-          <button className="see-details-btn" onClick={() => viewMovieInfo(id)}>See More Details </button>
+          <Link to={`/${id}`}>
+            <button className='see-details-btn'>See More Details</button>
+          </Link>
         </div>
       </section>  
       <p className="poster-title">{title}</p>
