@@ -70,6 +70,7 @@ class App extends Component {
       this.state.error && 
       <Modal message={this.state.error} exitModal={this.exitModal} />
     )
+    
     return (
       <main>
         <nav>

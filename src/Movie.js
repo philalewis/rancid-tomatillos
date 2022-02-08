@@ -23,9 +23,8 @@ class Movie extends Component {
   }
   
   componentDidMount() {
-    apiCalls.getData(`movies/${this.state.id}`)
+    apiCalls.getData(`movie/${this.state.id}`)
     .then(data => {
-      console.log(data)
       this.setState({
         id: data.movie.id,
         poster: data.movie.poster_path, 
