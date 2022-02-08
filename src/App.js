@@ -6,6 +6,7 @@ import './home-btn-img.png'
 import apiCalls from './apiCalls'
 import Modal from './Modal'
 import sortMovies from './sort.js'
+import SortDropdown from './SortDropdown';
 
 class App extends Component {
   constructor() {
@@ -78,14 +79,7 @@ class App extends Component {
         formatDate={this.formatDate}
       /> :
       <section>
-        <section className="sort-dropdown-container">
-          <select className="sort-dropdown" onChange={event => this.sortMovies(event.target.value)}>
-            <option value="title">title: a-z</option>
-            <option value="release_date_new_to_old">release date: newest-oldest</option>
-            <option value="release_date_old_to_new">release date: oldest-newest</option>
-            <option value="average_rating">average rating: high-low</option>
-          </select>
-        </section>
+        <SortDropdown sortMovies={this.sortMovies}/>
         <AllMovies
           viewMovieInfo={this.viewMovieInfo} 
           movies={this.state.movies}
