@@ -3,7 +3,6 @@ import './AllMovies.css'
 import Poster from './Poster'
 
 const AllMovies = ({ movies, viewMovieInfo, formatDate }) => {
-  
   const moviesList = movies.map(movie => {
     return (
       <Poster

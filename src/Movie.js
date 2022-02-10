@@ -60,13 +60,13 @@ class Movie extends Component {
           <img className="movie-poster-img" src={this.state.poster} alt={"Poster for " + this.state.title}/>
           <h2 className="title">{this.state.title}</h2>
           <section className="details-box">
-            <h3><em>{this.state.tagline.length > 0 && `"${this.state.tagline}"`}</em></h3>
+            {this.state.tagline.length > 0 && <h3><em>`"${this.state.tagline}"`</em></h3>}
             <p>Rating: {this.state.rating.toFixed(2)} / 10</p>
             <p>Release Date: {this.formatDate(this.state.releaseDate)}</p>
             <p>Genres: {this.state.genres.join(', ')}</p>
             <p>Runtime: {this.state.runtime} minutes</p>
-            <p>{this.state.budget > 0 && `Budget: $${dollarUSLocale.format(this.state.budget)}`}</p>
-            <p>{this.state.revenue > 0 && `Revenue: $${dollarUSLocale.format(this.state.revenue)}`}</p>
+            {this.state.budget > 0 && <p>Budget: ${dollarUSLocale.format(this.state.budget)}</p>}
+            {this.state.revenue > 0 && <p>Revenue: ${dollarUSLocale.format(this.state.revenue)}</p>}
           </section>
         </article>
         <section className="right-side">
