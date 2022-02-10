@@ -1,4 +1,4 @@
-describe.only('Modal for error handling', () => {
+describe('Modal for error handling', () => {
 
   it('should display a modal when a network request fails', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
