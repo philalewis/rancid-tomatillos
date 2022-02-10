@@ -1,4 +1,4 @@
-describe.only('Single movie page', () => {
+describe('Single movie page', () => {
   it('should see the poster image and backdrop image for the movie', () => {
     cy.visit('http://localhost:3000/528085')
       .get('.movie-poster-img')
