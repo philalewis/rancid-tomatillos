@@ -3,10 +3,10 @@ import './Movie.css'
 import apiCalls from './apiCalls'
 
 class Movie extends Component {
-  constructor({ id, handleError }) {
-    super() 
+  constructor(props) {
+    super(props) 
     this.state = {
-      id: id,
+      id: props.id,
       poster: '', 
       title: '',
       rating: null,
@@ -23,7 +23,7 @@ class Movie extends Component {
   }
   
   componentDidMount() {
-    apiCalls.getData(`movie/${this.state.id}`)
+    apiCalls.getData(`movies/${this.state.id}`)
     .then(data => {
       this.setState({
         id: data.movie.id,
@@ -41,7 +41,7 @@ class Movie extends Component {
         isMounted: true
       })
     })
-    .catch(error => this.handleError(error))
+    .catch(error => this.props.handleError(error))
   }
 
   formatDate = date => {
