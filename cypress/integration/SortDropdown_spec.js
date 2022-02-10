@@ -1,15 +1,15 @@
-describe.only('SortDropdown class', () => {
+describe('SortDropdown class', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
   });
   
-    it('should have a dropdown menu for the user to sort movies', () => {
-      cy.get('.sort-dropdown')
-        .get('option[value="title"]')
-        .get('option[value="release_date_new_to_old"]')
-        .get('option[value="release_date_old_to_new"]')
-        .get('option[value="average_rating"]')
-    });
+  it('should have a dropdown menu for the user to sort movies', () => {
+    cy.get('.sort-dropdown')
+      .get('option[value="title"]')
+      .get('option[value="release_date_new_to_old"]')
+      .get('option[value="release_date_old_to_new"]')
+      .get('option[value="average_rating"]')
+  });
 
   it('should sort movies by title by default', () => {
     cy.get('.poster-title')
