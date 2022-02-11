@@ -19,9 +19,9 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form>
+      <form className='search-bar'>
         <input type='text' placeholder='Search By Title' name='userInput' value={this.state.userInput} onChange={event => this.handleChange(event)} />
-        <button onClick={event => this.searchMovies(event)}>Submit</button>
+        <button className='search-btn' onClick={event => this.searchMovies(event)}>Submit</button>
       </form> 
     )
   }

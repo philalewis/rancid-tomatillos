@@ -1,6 +1,7 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
   padding: 10px;
   margin: 0;
   background-color: #B00D07;
@@ -10,6 +11,14 @@ nav {
 h1 {
   margin: 10px;
   font-size: 32px;
+  position: fixed;
+  left: 2rem;
+}
+
+.filter-features {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .home-btn-img {

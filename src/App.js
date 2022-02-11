@@ -87,7 +87,13 @@ class App extends Component {
       <main>
         <nav>
           <h1>Rancid Tomatillos</h1>
-          <SearchBar searchMovies={this.searchMovies}/>
+          <Route exact path="/" render={() =>   
+            <section className='filter-features'>
+              <SearchBar searchMovies={this.searchMovies}/>
+              <SortDropdown sortMovies={this.sortMovies}/>
+            </section>  
+            } 
+          />
           <Link to='/'> 
             <button className="home-btn"> 
               <img 
@@ -100,7 +106,6 @@ class App extends Component {
         </nav>
         <Route exact path="/" render={() => {
           return <section>
-            <SortDropdown sortMovies={this.sortMovies}/>
             <AllMovies
               viewMovieInfo={this.viewMovieInfo} 
               movies={this.state.filtered}
