@@ -8,6 +8,7 @@ import Modal from './Modal'
 import sortMovies from './sort.js'
 import SortDropdown from './SortDropdown'
 import { Route, Link } from 'react-router-dom'
+import SearchBar from './SearchBar'
 
 
 class App extends Component {
@@ -15,14 +16,15 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      currentMovie: {}
+      currentMovie: {},
+      filtered: []
     }
   }
   
   componentDidMount() {
     apiCalls.getData('movies')
     .then(data => {
-      this.setState({ movies: data.movies })
+      this.setState({ movies: data.movies, filtered: data.movies})
       this.sortMovies('title')
     })
     .catch(error => this.setState ({ error: error }))
@@ -57,12 +59,22 @@ class App extends Component {
   }
 
   sortMovies = category => {
-    this.setState({movies: sortMovies(this.state.movies, category)})
+    this.setState({movies: sortMovies(this.state.filtered, category)})
+  }
+
+  searchMovies = (input) => {
+    const term = input.toLowerCase()
+    this.setState({filtered: this.state.movies.filter(movie => {
+        const title = movie.title.toLowerCase()
+        return title.includes(term)
+      })
+    })
   }
 
   exitModal = () => {
     this.setState({ error: '' })
   }
+
 
   render() {
 
@@ -75,6 +87,13 @@ class App extends Component {
       <main>
         <nav>
           <h1>Rancid Tomatillos</h1>
+          <Route exact path="/" render={() =>   
+            <section className='filter-features'>
+              <SearchBar searchMovies={this.searchMovies}/>
+              <SortDropdown sortMovies={this.sortMovies}/>
+            </section>  
+            } 
+          />
           <Link to='/'> 
             <button className="home-btn"> 
               <img 
@@ -87,10 +106,9 @@ class App extends Component {
         </nav>
         <Route exact path="/" render={() => {
           return <section>
-            <SortDropdown sortMovies={this.sortMovies}/>
             <AllMovies
               viewMovieInfo={this.viewMovieInfo} 
-              movies={this.state.movies}
+              movies={this.state.filtered}
               formatDate={this.formatDate}
               sortMovies={this.sortMovies}
             />
