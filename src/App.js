@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import './App.css';
-import AllMovies from './AllMovies'
-import Movie from './Movie'
-import './home-btn-img.png'
-import apiCalls from './apiCalls'
-import Modal from './Modal'
-import sort from './sort.js'
-import { Route, Link } from 'react-router-dom'
-import Navbar from './Navbar'
+import AllMovies from './AllMovies';
+import Movie from './Movie';
+import './home-btn-img.png';
+import apiCalls from './apiCalls';
+import Modal from './Modal';
+import sort from './sort.js';
+import { Route } from 'react-router-dom';
+import Navbar from './Navbar';
 
 
 class App extends Component {

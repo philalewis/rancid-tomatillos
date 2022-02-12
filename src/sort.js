@@ -22,6 +22,6 @@ const sort = (movies, category) => {
         return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
       })
   }
-}
+};
 
-export default sort
+export default sort;

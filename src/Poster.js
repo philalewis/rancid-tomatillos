@@ -1,6 +1,6 @@
-import React from 'react'
-import './Poster.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import './Poster.css';
+import { Link } from 'react-router-dom';
 
 const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatDate }) => {
   return (
@@ -18,6 +18,6 @@ const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatD
       <p className="release-date">Released: {formatDate(releaseDate)}</p>
     </article>
   )
-}
+};
 
-export default Poster
+export default Poster;

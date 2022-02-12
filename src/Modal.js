@@ -1,5 +1,5 @@
-import React from 'react'
-import './Modal.css'
+import React from 'react';
+import './Modal.css';
 
 const Modal = ({ message, exitModal }) => {
   return(
@@ -10,6 +10,6 @@ const Modal = ({ message, exitModal }) => {
       </article>  
     </section>
   )
-}
+};
 
-export default Modal
+export default Modal;

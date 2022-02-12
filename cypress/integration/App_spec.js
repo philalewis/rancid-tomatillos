@@ -16,7 +16,7 @@ describe('Home page', () => {
     cy.visit('http://localhost:3000/528085')
       .get('.home-btn').click()
     cy.url().should('eq', 'http://localhost:3000/')
-  })
+  });
 
   it('should be able to search through all movie titles even after sorting', () => {
     cy.visit('http://localhost:3000/')
@@ -29,5 +29,5 @@ describe('Home page', () => {
       .type('2067')
       .get('.poster-title')
       .should('exist')
-  })
+  });
 });

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link, Route } from 'react-router-dom'
-import SearchBar from './SearchBar'
-import SortDropdown from './SortDropdown'
+import React from 'react';
+import { Link, Route } from 'react-router-dom';
+import SearchBar from './SearchBar';
+import SortDropdown from './SortDropdown';
 
 const Navbar = ({ searchMovies, sortMovies }) => {
   return (

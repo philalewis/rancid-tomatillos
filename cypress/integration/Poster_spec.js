@@ -29,4 +29,4 @@ describe('Poster class', () => {
     cy.get('.see-details-btn')
       .should('exist')
   });
-})
+});

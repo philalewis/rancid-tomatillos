@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchBar.css'
+import './SearchBar.css';
 
 class SearchBar extends Component {
   constructor() {
@@ -36,6 +36,6 @@ class SearchBar extends Component {
       </form> 
     )
   }
-}
+};
 
 export default SearchBar;

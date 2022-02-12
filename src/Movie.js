@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import './Movie.css'
-import apiCalls from './apiCalls'
+import React, { Component } from 'react';
+import './Movie.css';
+import apiCalls from './apiCalls';
 
 class Movie extends Component {
   constructor(props) {
@@ -73,6 +73,6 @@ class Movie extends Component {
       </section>
     )
   }
-}
+};
 
-export default Movie
+export default Movie;

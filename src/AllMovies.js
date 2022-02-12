@@ -1,6 +1,6 @@
-import React from 'react'
-import './AllMovies.css'
-import Poster from './Poster'
+import React from 'react';
+import './AllMovies.css';
+import Poster from './Poster';
 
 const AllMovies = ({ movies, viewMovieInfo, formatDate }) => {
   const moviesList = movies.map(movie => {
@@ -23,6 +23,6 @@ const AllMovies = ({ movies, viewMovieInfo, formatDate }) => {
       { moviesList }
     </section>
   )
-}
+};
 
-export default AllMovies
+export default AllMovies;
