@@ -18,7 +18,6 @@ class Movie extends Component {
       overview: '',
       runtime: null,
       tagline: '',
-      isMounted: false
     }
   }
   
@@ -38,7 +37,6 @@ class Movie extends Component {
         overview: data.movie.overview,
         runtime: data.movie.runtime,
         tagline: data.movie.tagline,
-        isMounted: true
       })
     })
     .catch(error => this.props.handleError(error))
@@ -54,17 +52,16 @@ class Movie extends Component {
   render() {
     let dollarUSLocale = Intl.NumberFormat('en-US'); 
     return (
-      this.state.isMounted ?
       <section className="movie-details-view" id={this.state.id}>
         <article className="left-side">
           <img className="movie-poster-img" src={this.state.poster} alt={"Poster for " + this.state.title}/>
           <h2 className="title">{this.state.title}</h2>
           <section className="details-box">
-            {this.state.tagline.length > 0 && <h3><em>`"${this.state.tagline}"`</em></h3>}
-            <p>Rating: {this.state.rating.toFixed(2)} / 10</p>
+            {this.state.tagline.length > 0 && <h3><em>"{this.state.tagline}"</em></h3>}
+            {this.state.rating && <p>Rating: {this.state.rating.toFixed(2)} / 10</p>}
             <p>Release Date: {this.formatDate(this.state.releaseDate)}</p>
-            <p>Genres: {this.state.genres.join(', ')}</p>
-            <p>Runtime: {this.state.runtime} minutes</p>
+            {this.state.genres.length > 0 && <p>Genres: {this.state.genres.join(', ')}</p>}
+            {this.state.runtime > 0 && <p>Runtime: {this.state.runtime} minutes</p>}
             {this.state.budget > 0 && <p>Budget: ${dollarUSLocale.format(this.state.budget)}</p>}
             {this.state.revenue > 0 && <p>Revenue: ${dollarUSLocale.format(this.state.revenue)}</p>}
           </section>
@@ -73,8 +70,7 @@ class Movie extends Component {
           <img className="backdrop-img" src={this.state.backdrop} alt={"Backdrop Image for " + this.state.title}/>
           <p className="overview-text">{this.state.overview}</p>
         </section>
-      </section> :
-      <h2>Loading...</h2>
+      </section>
     )
   }
 }

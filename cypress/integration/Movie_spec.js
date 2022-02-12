@@ -40,16 +40,24 @@ describe('Single movie page', () => {
       .contains('10/01/2020')
   })
 
-  it('should see the movie\'s genres', () => {
+  it('should see the movie\'s genres, if any are given', () => {
     cy.visit('http://localhost:3000/528085')
       .get('.details-box')
       .contains('Science Fiction, Thriller')
+
+    cy.visit('http://localhost:3000/737173')
+      .get('.details-box')
+      .contains('p', 'Genres').should('not.exist')
   })
 
-  it('should see the runtime in minutes', () => {
+  it('should see the runtime in minutes, if given', () => {
     cy.visit('http://localhost:3000/528085')
       .get('.details-box')
-      .contains('114 minutes')
+      .contains('p', 'Runtime')
+
+    cy.visit('http://localhost:3000/737173')
+      .get('.details-box')
+      .contains('p', 'Runtime').should('not.exist')
   })
 
   it('should be able to see the budget if it exists', () => {
@@ -61,7 +69,6 @@ describe('Single movie page', () => {
       .get('.details-box')
       .contains('$200,000,000')
   })
-
 
   it('should be able to see the revenue if it exists', () => {
     cy.visit('http://localhost:3000/528085')

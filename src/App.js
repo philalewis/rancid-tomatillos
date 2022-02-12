@@ -104,21 +104,20 @@ class App extends Component {
             </button>
           </Link>
         </nav>
-        <Route exact path="/" render={() => {
-          return <section>
+        <Route exact path="/" render={() => 
+          <section>
             <AllMovies
-              viewMovieInfo={this.viewMovieInfo} 
+              viewMovieInfo={this.viewMovieInfo}
               movies={this.state.filtered}
               formatDate={this.formatDate}
               sortMovies={this.sortMovies}
             />
           </section>
-          }
         } 
         />
-        <Route exact path="/:id" render={({ match }) => {
-          return <Movie id={match.params.id} handleError={this.handleError}/>
-        }}
+        <Route exact path="/:id" render={({ match }) => 
+          <Movie id={match.params.id} handleError={this.handleError}/>
+        }
         />
         { displayError }
       </main>
