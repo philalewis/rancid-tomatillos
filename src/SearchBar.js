@@ -31,7 +31,7 @@ class SearchBar extends Component {
         <button 
           className='search-btn' 
           onClick={event => this.searchMovies(event)}
-        >Submit
+        >Search
         </button>
       </form> 
     )

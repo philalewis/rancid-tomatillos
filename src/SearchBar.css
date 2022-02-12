@@ -11,3 +11,7 @@ input {
 .search-btn {
   height: 30px;
 }
+
+.search-btn:hover {
+  cursor: pointer;
+}

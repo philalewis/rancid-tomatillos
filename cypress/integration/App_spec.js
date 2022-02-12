@@ -1,4 +1,4 @@
-describe('Feedback Loop login flows', () => {
+describe('Home page', () => {
   
   it('should display an page header', () => {
     cy.visit('http://localhost:3000/')
@@ -16,5 +16,18 @@ describe('Feedback Loop login flows', () => {
     cy.visit('http://localhost:3000/528085')
       .get('.home-btn').click()
     cy.url().should('eq', 'http://localhost:3000/')
+  })
+
+  it('should be able to search through all movie titles even after sorting', () => {
+    cy.visit('http://localhost:3000/')
+      .get('input[type="text"]')
+      .type('a')
+      .get('.search-btn').click()
+      .get('.sort-dropdown')
+      .select('average_rating')
+      .get('input[type="text"]')
+      .type('2067')
+      .get('.poster-title')
+      .should('exist')
   })
 });
