@@ -140,4 +140,11 @@ describe('Single movie page', () => {
       .get('.details-box')
       .contains('$103,181,419')
   })
+
+  it('should not be able to see the sort or filter inputs on individual movie pages', () => {
+    cy.intercept('GET', getMovieData(508439))
+      .visit('http://localhost:3000/508439')
+      .get('.search-bar').should('not.exist')
+      .get('.sort-dropdown').should('not.exist')
+  })
 })
