@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchBar.css'
+import './SearchBar.css';
 
 class SearchBar extends Component {
   constructor() {
@@ -15,16 +15,27 @@ class SearchBar extends Component {
   searchMovies(event) {
     event.preventDefault()
     this.props.searchMovies(this.state.userInput)
+    this.setState({ userInput: '' })
   }
 
   render() {
     return (
       <form className='search-bar'>
-        <input type='text' placeholder='Search By Title' name='userInput' value={this.state.userInput} onChange={event => this.handleChange(event)} />
-        <button className='search-btn' onClick={event => this.searchMovies(event)}>Submit</button>
+        <input 
+          type='text' 
+          placeholder='Search By Title' 
+          name='userInput' 
+          value={this.state.userInput} 
+          onChange={event => this.handleChange(event)} 
+        />
+        <button 
+          className='search-btn' 
+          onClick={event => this.searchMovies(event)}
+        >Search
+        </button>
       </form> 
     )
   }
-}
+};
 
 export default SearchBar;

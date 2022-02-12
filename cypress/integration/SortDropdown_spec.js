@@ -25,7 +25,7 @@ describe('SortDropdown class', () => {
       .select('title')
       .get('.poster-title')
       .contains('2067')
-  })
+  });
 
   it('should be able to sort movies by rating', () => {
     cy.get('.sort-dropdown')
@@ -47,4 +47,4 @@ describe('SortDropdown class', () => {
       .get('.poster-title')
       .contains('Cats & Dogs 3: Paws Unite')
   });
-})
+});

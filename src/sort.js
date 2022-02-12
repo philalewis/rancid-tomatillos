@@ -1,4 +1,4 @@
-const sortMovies = (movies, category) => {
+const sort = (movies, category) => {
   switch (category) {
     case 'average_rating':
       return movies.sort((a, b) => {
@@ -22,6 +22,6 @@ const sortMovies = (movies, category) => {
         return titleA < titleB ? -1 : titleA > titleB ? 1 : 0
       })
   }
-}
+};
 
-export default sortMovies
+export default sort;

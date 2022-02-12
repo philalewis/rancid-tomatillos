@@ -1,5 +1,5 @@
-import React from 'react'
-import './SortDropdown.css'
+import React from 'react';
+import './SortDropdown.css';
 
 
 const SortDropdown = ({ sortMovies }) => {
@@ -13,6 +13,6 @@ const SortDropdown = ({ sortMovies }) => {
       </select>  
     </section>
   )
-}
+};
 
-export default SortDropdown
+export default SortDropdown;

@@ -1,14 +1,13 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import './App.css';
-import AllMovies from './AllMovies'
-import Movie from './Movie'
-import './home-btn-img.png'
-import apiCalls from './apiCalls'
-import Modal from './Modal'
-import sortMovies from './sort.js'
-import SortDropdown from './SortDropdown'
-import { Route, Link } from 'react-router-dom'
-import SearchBar from './SearchBar'
+import AllMovies from './AllMovies';
+import Movie from './Movie';
+import './home-btn-img.png';
+import apiCalls from './apiCalls';
+import Modal from './Modal';
+import sort from './sort.js';
+import { Route } from 'react-router-dom';
+import Navbar from './Navbar';
 
 
 class App extends Component {
@@ -59,7 +58,7 @@ class App extends Component {
   }
 
   sortMovies = category => {
-    this.setState({movies: sortMovies(this.state.filtered, category)})
+    this.setState({filtered: sort(this.state.filtered, category)})
   }
 
   searchMovies = (input) => {
@@ -85,40 +84,24 @@ class App extends Component {
 
     return (
       <main>
-        <nav>
-          <h1>Rancid Tomatillos</h1>
-          <Route exact path="/" render={() =>   
-            <section className='filter-features'>
-              <SearchBar searchMovies={this.searchMovies}/>
-              <SortDropdown sortMovies={this.sortMovies}/>
-            </section>  
-            } 
-          />
-          <Link to='/'> 
-            <button className="home-btn"> 
-              <img 
-                className="home-btn-img" 
-                src={require("./home-btn-img.png")} 
-                alt="home-icon" 
-              />
-            </button>
-          </Link>
-        </nav>
-        <Route exact path="/" render={() => {
-          return <section>
+        <Navbar 
+          searchMovies={this.searchMovies} 
+          sortMovies={this.sortMovies} 
+        />
+        <Route exact path="/" render={() => 
+          <section>
             <AllMovies
-              viewMovieInfo={this.viewMovieInfo} 
+              viewMovieInfo={this.viewMovieInfo}
               movies={this.state.filtered}
               formatDate={this.formatDate}
               sortMovies={this.sortMovies}
             />
           </section>
-          }
         } 
         />
-        <Route exact path="/:id" render={({ match }) => {
-          return <Movie id={match.params.id} handleError={this.handleError}/>
-        }}
+        <Route exact path="/:id" render={({ match }) => 
+          <Movie id={match.params.id} handleError={this.handleError}/>
+        }
         />
         { displayError }
       </main>
