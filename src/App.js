@@ -72,7 +72,6 @@ class App extends Component {
   }
   
   resetFiltered = () => {
-    console.log(this.state.filtered)
     this.setState({ filtered: this.state.movies })
   }
 
