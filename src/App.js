@@ -64,11 +64,16 @@ class App extends Component {
 
   searchMovies = (input) => {
     const term = input.toLowerCase()
-    this.setState({filtered: this.state.movies.filter(movie => {
+    this.setState({ filtered: this.state.movies.filter(movie => {
         const title = movie.title.toLowerCase()
         return title.includes(term)
       })
     })
+  }
+  
+  resetFiltered = () => {
+    console.log(this.state.filtered)
+    this.setState({ filtered: this.state.movies })
   }
 
   exitModal = () => {
@@ -88,6 +93,7 @@ class App extends Component {
         <Navbar 
           searchMovies={this.searchMovies} 
           sortMovies={this.sortMovies} 
+          resetFiltered={this.resetFiltered}
         />
         <Route exact path="/rancid-tomatillos/" render={() => 
           <section>

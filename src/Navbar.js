@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import SortDropdown from './SortDropdown';
 import './Navbar.css'
 
-const Navbar = ({ searchMovies, sortMovies }) => {
+const Navbar = ({ searchMovies, sortMovies, resetFiltered }) => {
   return (
     <nav>
       <h1>Rancid Tomatillos</h1>
@@ -16,7 +16,7 @@ const Navbar = ({ searchMovies, sortMovies }) => {
         } 
       />
       <Link to='/rancid-tomatillos/'>
-        <button className="home-btn"> 
+        <button className="home-btn" onClick={ () => resetFiltered()}> 
           <img 
             className="home-btn-img" 
             src={require("./home-btn-img.png")} 

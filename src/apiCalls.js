@@ -2,11 +2,9 @@ const apiCalls = {
   getData(path) {
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${path}`)
     .then(response => {
-      console.log(response)
       if (response.ok) {
         return response.json()
       } else {
-        console.log('responseStatus', response.status)
         if(response.status < 500) {
           throw `We're sorry, something went wrong. Either the page doesn't exist, or could not be found.`
         } else {
