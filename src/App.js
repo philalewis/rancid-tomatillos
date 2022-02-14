@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       movies: [],
       currentMovie: {},
-      filtered: []
+      filtered: [],
+      error: null
     }
   }
   
@@ -99,7 +100,7 @@ class App extends Component {
           </section>
         } 
         />
-        <Route exact path="/:id" render={({ match }) => 
+        <Route exact path="/rancid-tomatillos/:id" render={({ match }) => 
           <Movie id={match.params.id} handleError={this.handleError}/>
         }
         />
