@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Rancis Tomatillos 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Overview](#overview)
+- [Deployed-site](#deployed-site)
+- [Screentshots](#screenshots)
+- [Links](#links)
+- [Contributors](#contributors)
+- [Technologies](#technologies)
 
-## Available Scripts
+## Overview
+This is a paired project using React to build an application that allows the user to view all movies, search movie by title, and filter movies based on different categories. The user is also able to click on a see more details button to view the movie's tagline, overview, rating, release date, genres, and runtime if available from the api data available. 
 
-In the project directory, you can run:
+## Deployed site
+https://philalewis.github.io/rancid-tomatillos/
 
-### `npm start`
+## Screenshots 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Home page view 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="480" alt="Screen Shot 2022-02-14 at 3 20 13 PM" src="https://user-images.githubusercontent.com/89872714/153956905-6ab31ef6-2cd4-4165-b8a7-f940ceb3636e.png">
 
-### `npm test`
+Users can view a list of movies with the title, ratings, and release date. 
+![home-view](https://media.giphy.com/media/bFpvJYY7tc3c0tRpsR/giphy.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users can search movies by title and view movie details 
+![search-view](https://media.giphy.com/media/UG7xZXeN1SZLZPUF67/giphy.gif)
 
-### `npm run build`
+Users can filterd by different categories 
+![filtered-view](https://media.giphy.com/media/ftbO0PX7YWN9789Ic7/giphy.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Users can click the home button from any page to go back to all movies list. 
+![home-button](https://media.giphy.com/media/xfN2PVtNh3TjbHfMMN/giphy.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+App also has responsive layout for mobile view or browser view. 
+![responsive-layout](https://media.giphy.com/media/oGtC2nY9BYp0ZVxx1k/giphy.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Links 
+Checkout the Turing spec sheet [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 
-### `npm run eject`
+## Contributors
+[Phil Lewis](https://github.com/philalewis)  
+[Lynn Nguyen](https://github.com/Alynn022)  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React 
+- JavaScript 
+- CSS 
+- Fetch API 
+- Cypress 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

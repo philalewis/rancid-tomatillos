@@ -1,50 +1,11 @@
-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 10px;
-  margin: 0;
-  background-color: #B00D07;
-  color: white;
+html {
+  width: 100%;
 }
 
-h1 {
-  margin: 10px;
-  font-size: 32px;
-  position: fixed;
-  left: 2rem;
+body {
+  width: 100%;
+  overflow-x: hidden !important;
 }
 
-.filter-features {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
 
-.home-btn-img {
-  width: 25px;
-}
-
-.home-btn {
-  border: none;
-  background-color: white;
-  border-radius: 50%;
-  margin: 10px;
-  width: 40px;
-  height: 40px;
-}
-
-.home-btn,
-.sort-dropdown:hover {
-  cursor: pointer;
-}
-
-.sort-dropdown {
-  margin: 10px;
-}
-
-.sort-dropdown-container {
-  display: flex;
-  justify-content: flex-end;
-}
 

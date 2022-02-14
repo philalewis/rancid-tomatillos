@@ -1,6 +1,18 @@
 .all-movies-container {
-  padding: 50px;
+  padding: 10px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .all-movies-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (min-width: 820px) {
+  .all-movies-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
