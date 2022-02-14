@@ -88,7 +88,7 @@ class App extends Component {
           searchMovies={this.searchMovies} 
           sortMovies={this.sortMovies} 
         />
-        <Route exact path="/" render={() => 
+        <Route exact path="/rancid-tomatillos/" render={() => 
           <section>
             <AllMovies
               viewMovieInfo={this.viewMovieInfo}

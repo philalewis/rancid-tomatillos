@@ -8,7 +8,7 @@ const Poster = ({ poster, title, rating, releaseDate, viewMovieInfo, id, formatD
       <section className="poster-image-container">
         <img className="poster-image" src={poster} alt={title}/>
         <div className="middle">
-          <Link to={`/${id}`}>
+          <Link to={`/rancid-tomatillos/${id}`}>
             <button className='see-details-btn'>See More Details</button>
           </Link>
         </div>

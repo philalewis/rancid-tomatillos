@@ -8,14 +8,14 @@ const Navbar = ({ searchMovies, sortMovies }) => {
   return (
     <nav>
       <h1>Rancid Tomatillos</h1>
-      <Route exact path="/" render={() =>   
+      <Route exact path="/rancid-tomatillos/" render={() =>   
         <section className='filter-features'>
           <SearchBar searchMovies={searchMovies}/>
           <SortDropdown sortMovies={sortMovies}/>
         </section>  
         } 
       />
-      <Link to='/'>
+      <Link to='/rancid-tomatillos/'>
         <button className="home-btn"> 
           <img 
             className="home-btn-img" 
