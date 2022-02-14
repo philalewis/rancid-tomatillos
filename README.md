@@ -21,18 +21,23 @@ Home page view
 <img width="480" alt="Screen Shot 2022-02-14 at 3 20 13 PM" src="https://user-images.githubusercontent.com/89872714/153956905-6ab31ef6-2cd4-4165-b8a7-f940ceb3636e.png">
 
 Users can view a list of movies with the title, ratings, and release date. 
+
 ![home-view](https://media.giphy.com/media/bFpvJYY7tc3c0tRpsR/giphy.gif)
 
 Users can search movies by title and view movie details 
+
 ![search-view](https://media.giphy.com/media/UG7xZXeN1SZLZPUF67/giphy.gif)
 
 Users can filterd by different categories 
+
 ![filtered-view](https://media.giphy.com/media/ftbO0PX7YWN9789Ic7/giphy.gif)
 
 Users can click the home button from any page to go back to all movies list. 
+
 ![home-button](https://media.giphy.com/media/xfN2PVtNh3TjbHfMMN/giphy.gif)
 
 App also has responsive layout for mobile view or browser view. 
+
 ![responsive-layout](https://media.giphy.com/media/oGtC2nY9BYp0ZVxx1k/giphy.gif)
 
 ## Links 
