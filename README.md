@@ -1,10 +1,18 @@
-# Getting Started with Create React App
+# Rancis Tomatillos 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Overview](#overview)
+- [Setup](#setup)
+- [Screentshots](#screenshots)
+- [Links](#links)
+- [Future Additions](#future-additions)
+- [Contributors](#contributors)
+- [Technologies](#technologies)
 
-## Available Scripts
+## Overview
+This is a paired project using React to build an application that allows the user to view all movies, search movie by title, and filter movies based on different categories. The user is also able to click on a see more details button to view the movie's tagline, overview, rating, release date, genres, and runtime if available from the api data available. 
 
-In the project directory, you can run:
+## Setup 
 
 ### `npm start`
 

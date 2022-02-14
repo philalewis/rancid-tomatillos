@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import SortDropdown from './SortDropdown';
+import './Navbar.css'
 
 const Navbar = ({ searchMovies, sortMovies }) => {
   return (
