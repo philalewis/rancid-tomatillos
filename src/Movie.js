@@ -18,6 +18,7 @@ class Movie extends Component {
       overview: '',
       runtime: null,
       tagline: '',
+      error: false
     }
   }
   
@@ -39,7 +40,10 @@ class Movie extends Component {
         tagline: data.movie.tagline,
       })
     })
-    .catch(error => this.props.handleError(error))
+    .catch(error => { 
+      this.setState({ error: true })
+      this.props.handleError(error)
+    })
   }
 
   formatDate = date => {
@@ -51,7 +55,7 @@ class Movie extends Component {
 
   render() {
     let dollarUSLocale = Intl.NumberFormat('en-US'); 
-    return (
+    const errorHandle = !this.state.error && 
       <section className="movie-details-view" id={this.state.id}>
         <article className="left-side">
           <img className="movie-poster-img" src={this.state.poster} alt={"Poster for " + this.state.title}/>
@@ -71,6 +75,10 @@ class Movie extends Component {
           <p className="overview-text">{this.state.overview}</p>
         </section>
       </section>
+    return (
+      <div>
+        { errorHandle }
+      </div>
     )
   }
 };
