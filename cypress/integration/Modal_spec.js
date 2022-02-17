@@ -7,7 +7,7 @@ describe('Modal for error handling', () => {
         ok: false,
       }
     )
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('.modal')
   });
 
@@ -18,7 +18,7 @@ describe('Modal for error handling', () => {
         ok: false,
       }
     )
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('.modal')
       .get('h3')
       .contains('We\'re sorry, something went wrong. Either the page doesn\'t exist, or could not be found')
@@ -29,7 +29,7 @@ describe('Modal for error handling', () => {
         ok: false,
       }
     )
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('.modal')
       .get('h3')
       .contains('We\'re sorry, something went wrong with the server. Please try again later')
@@ -42,7 +42,7 @@ describe('Modal for error handling', () => {
         ok: false,
       }
     )
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('.modal-btn')
       .click()
       .get('.modal').should('not.exist')
@@ -55,7 +55,7 @@ describe('Modal for error handling', () => {
         ok: false,
       }
     )
-    cy.visit('http://localhost:3000/337401')
+    cy.visit('http://localhost:3000/rancid-tomatillos/337401')
       .get('.modal')
   });
 });

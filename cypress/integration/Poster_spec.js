@@ -1,7 +1,7 @@
 describe('Poster class', () => {
   
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
   });
   
   it('should display posters for movies', () => {

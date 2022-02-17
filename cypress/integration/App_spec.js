@@ -1,25 +1,25 @@
 describe('Home page', () => {
   
   it('should display an page header', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('h1')
       .should('have.text', 'Rancid Tomatillos')
   });
 
   it('should have a home button in a nav bar', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('nav')
       .get('.home-btn')
   });
 
   it('should be able to navigate to the home page from any other page', () => {
-    cy.visit('http://localhost:3000/528085')
+    cy.visit('http://localhost:3000/rancid-tomatillos/528085')
       .get('.home-btn').click()
-    cy.url().should('eq', 'http://localhost:3000/')
+    cy.url().should('eq', 'http://localhost:3000/rancid-tomatillos/')
   });
 
   it('should be able to search through all movie titles even after sorting', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
       .get('input[type="text"]')
       .type('a')
       .get('.search-btn').click()

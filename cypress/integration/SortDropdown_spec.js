@@ -1,6 +1,6 @@
 describe('SortDropdown class', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
   });
   
   it('should have a dropdown menu for the user to sort movies', () => {
