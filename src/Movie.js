@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Movie.css';
 import apiCalls from './apiCalls';
+import format from './format'
 
 class Movie extends Component {
   constructor(props) {
@@ -46,28 +47,28 @@ class Movie extends Component {
     })
   }
 
-  formatDate = date => {
-    const splitDate = date.split('-')
-    const newDate = splitDate.slice(1)
-    newDate.push(splitDate[0])
-    return newDate.join('/')
-  }
+  // formatDate = date => {
+  //   const splitDate = date.split('-')
+  //   const newDate = splitDate.slice(1)
+  //   newDate.push(splitDate[0])
+  //   return newDate.join('/')
+  // }
 
   render() {
     let dollarUSLocale = Intl.NumberFormat('en-US'); 
-    const errorHandle = !this.state.error && 
+    const detailsView = !this.state.error && 
       <section className="movie-details-view" id={this.state.id}>
         <article className="left-side">
           <img className="movie-poster-img" src={this.state.poster} alt={"Poster for " + this.state.title}/>
           <h2 className="title">{this.state.title}</h2>
           <section className="details-box">
             {this.state.tagline.length > 0 && <h3><em>"{this.state.tagline}"</em></h3>}
-            {this.state.rating && <p>Rating: {this.state.rating.toFixed(2)} / 10</p>}
-            <p>Release Date: {this.formatDate(this.state.releaseDate)}</p>
-            {this.state.genres.length > 0 && <p>Genres: {this.state.genres.join(', ')}</p>}
+            {this.state.rating && <p>Rating: {format.rating(this.state.rating)}</p>}
+            <p>Release Date: {format.date(this.state.releaseDate)}</p>
+            {this.state.genres.length > 0 && <p>Genres: {format.genres(this.state.genres)}</p>}
             {this.state.runtime > 0 && <p>Runtime: {this.state.runtime} minutes</p>}
-            {this.state.budget > 0 && <p>Budget: ${dollarUSLocale.format(this.state.budget)}</p>}
-            {this.state.revenue > 0 && <p>Revenue: ${dollarUSLocale.format(this.state.revenue)}</p>}
+            {this.state.budget > 0 && <p>Budget: ${format.money(this.state.budget)}</p>}
+            {this.state.revenue > 0 && <p>Revenue: ${format.money(this.state.revenue)}</p>}
           </section>
         </article>
         <section className="right-side">
@@ -76,9 +77,9 @@ class Movie extends Component {
         </section>
       </section>
     return (
-      <div>
-        { errorHandle }
-      </div>
+      <>
+        { detailsView }
+      </>
     )
   }
 };
