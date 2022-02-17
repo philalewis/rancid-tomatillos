@@ -1,4 +1,4 @@
-# Rancis Tomatillos 
+# Rancid Tomatillos 
 
 ## Table of Contents
 - [Overview](#overview)

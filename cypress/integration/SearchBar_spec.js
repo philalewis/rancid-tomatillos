@@ -1,6 +1,6 @@
 describe('Search bar', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/rancid-tomatillos/')
   });
 
   it('should be able to type into a search bar', () => {
